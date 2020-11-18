@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Specify a directory for static resources
-app.use(express.static('./public'));
+app.use('/public',express.static('public'));
 app.use(express.static('./img'));
 
 // Database Setup
@@ -47,8 +47,6 @@ app.post('/charAdd', handelAddChar);
 app.get('/fav', handelFav);
 app.get('/char/:id',handelChar);
 app.put('/char/:id',handelCharUpdate);
-
-
 app.delete('/char/:id',handelCharDELETE);
 
 
@@ -67,9 +65,6 @@ function handelCharDELETE(req,res){
 
 }
 
-
-
-
 function handelCharUpdate(req,res){
   let recvied = req.body;
   let cahrID = req.params.id;
@@ -77,7 +72,7 @@ function handelCharUpdate(req,res){
   let values = [recvied.name,recvied.patround,recvied.alive,cahrID];
 
   client.query(statment,values).then(data => {
-
+    console.log(`/char/${cahrID}`);
     res.redirect(`/char/${cahrID}`);
   }).catch(error => {
     console.log('handelCharUpdate', error);
@@ -101,9 +96,6 @@ function handelChar(req,res){
     console.log('handelChar', error);
   });
 
-
-
-
 }
 
 
@@ -120,8 +112,6 @@ function handelFav(req,res){
 
     console.log('handelFav', error);
   });
-
-
 
 }
 
@@ -180,6 +170,7 @@ function Character(character) {
   this.patround = character.patronus;
   this.alive = character.alive;
   this.img = character.image;
+  this.student=character.hogwartsStudent;
 }
 
 
