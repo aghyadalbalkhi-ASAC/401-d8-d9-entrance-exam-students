@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>ourChar.namecahr</h1>
+
+    <form action="/char/<%= ourChar.id %>?_method=PUT" method="POST">
+
+    
+        <input type="hidden" name="img" id="img" value="<%= ourChar.img %>">
+
+
+        <label for="name"> character Name</label>
+        <input type="text" name="name" id="name" value="<%= ourChar.namecahr %>">
+
+        <label for="patround"> character patround</label>
+        <input type="text" name="patround" id="patround" value="<%= ourChar.patround %>">
+
+        <label for="name"> character Satus</label>
+        <input type="text" name="alive" id="alive" value=" <%= ourChar.alive %>">
+
+
+        <input type="submit" value=" Update a character">
+        
+
+    </form>
+
+    <form action="/char/<%= ourChar.id %>?_method=DELETE" method="POST">
+
+
+        <input type="submit" value=" DELETE  character">
+    </form>
+
+
+
+</body>
+</html>

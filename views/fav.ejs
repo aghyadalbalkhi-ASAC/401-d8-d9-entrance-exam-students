@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>My characters</h1>
+
+
+    <%  ourChar.forEach( ele =>{  %>
+        <div>
+    
+            <img src=" <%= ele.img %>" alt="">
+            <h3> Name :  <%= ele.namecahr %> </h3>
+            <h3> Patround : <%= ele.patround %></h3>
+            <h3> Status : <%= ele.alive %> </h3>
+        </div>
+
+        <a href="/char/<%= ele.id %>">Continue</a>
+
+        <% }); %>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> House Name : </h1>
+
+  <%  ourChar.forEach( ele =>{  %>
+    <div>
+
+        <img src=" <%= ele.img %>" alt="">
+        <h3> Name :  <%= ele.name %> </h3>
+        <h3> Patround : <%= ele.patround %></h3>
+        <h3> Alive : <%= ele.alive %> </h3>
+
+        <form action="/charAdd" method="POST">
+
+            <input type="hidden" name="img" id="img" value="<%= ele.img %>">
+            <input type="hidden" name="name" id="name" value="<%= ele.name %>">
+            <input type="hidden" name="patround" id="patround" value="<%= ele.patround %>">
+            <input type="hidden" name="alive" id="alive" value=" <%= ele.alive %>">
+            <input type="submit" value=" Save a character to the database">
+            
+
+        </form>
+
+
+
+    </div>
+    <% }); %>
+</body>
+</html>
